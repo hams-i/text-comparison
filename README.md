@@ -30,8 +30,8 @@ This tool allows you to perform such comparisons quickly and effectively.
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/hams-i/check_values.git
-   cd check_values
+   git clone https://github.com/hams-i/text-comparison.git
+   cd text-comparison
    ```
 
 2. Open index file in a web browser:
@@ -65,10 +65,10 @@ This tool allows you to perform such comparisons quickly and effectively.
 
 ## Developer
 
-[Hamsi](https://github.com/hams-i)
+[Github - Hamsi](https://github.com/hams-i)
 
 ## Tools Used and Details
 
-Time: 1 Hour 30 Minutes
-Cursor.AI (https://www.cursor.com/)
-Claude-3-5-sonnet at Cursor App
+- Time: 1 Hour 30 Minutes
+- Cursor.AI (https://www.cursor.com/)
+- Claude-3-5-sonnet in the Cursor App
