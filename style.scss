@@ -120,6 +120,13 @@ body {
     label {
         font-size: 0.9rem;
         font-weight: 500;
+
+        .char-count {
+            color: var(--primary);
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+            opacity: 0.8;
+        }
     }
 }
 

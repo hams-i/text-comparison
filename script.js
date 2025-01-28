@@ -10,6 +10,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // İlk input'a focus ol
     document.querySelector('textarea').focus();
 
+    // Karakter sayısını güncelle
+    function updateCharCount(textarea) {
+        const charCount = textarea.value.length;
+        const label = textarea.closest('.input-wrapper').querySelector('.input-header label');
+        label.innerHTML = `Text ${textarea.id.replace('text', '')} <span class="char-count">(${charCount} chars)</span>`;
+    }
+
     // Yeni input alanı ekleme
     function createInputGroup() {
         inputCount++;
@@ -18,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         inputGroup.innerHTML = `
             <div class="input-wrapper">
                 <div class="input-header">
-                    <label for="text${inputCount}">Text ${inputCount}</label>
+                    <label for="text${inputCount}">Text ${inputCount} <span class="char-count">(0 chars)</span></label>
                     <div class="input-actions">
                         <button class="clear-input" title="Clear Text">
                             <i class="fas fa-eraser"></i>
@@ -31,6 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 <textarea id="text${inputCount}" rows="10" placeholder="Enter text here..."></textarea>
             </div>
         `;
+        
+        const textarea = inputGroup.querySelector('textarea');
+        textarea.addEventListener('input', () => updateCharCount(textarea));
+        
         inputContainer.appendChild(inputGroup);
         return inputGroup;
     }
@@ -49,11 +60,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const label = group.querySelector('label');
             const textarea = group.querySelector('textarea');
             const newIndex = index + 1;
-            label.textContent = `Text ${newIndex}`;
+            const charCount = textarea.value.length;
             textarea.id = `text${newIndex}`;
+            label.innerHTML = `Text ${newIndex} <span class="char-count">(${charCount} chars)</span>`;
         });
         inputCount = document.querySelectorAll('.input-group').length;
     }
+
+    // İlk iki textarea için input event listener'ları ekle
+    document.querySelectorAll('textarea').forEach(textarea => {
+        textarea.addEventListener('input', () => updateCharCount(textarea));
+        updateCharCount(textarea); // İlk yüklemede karakter sayılarını göster
+    });
 
     // Event Listeners
     addInputBtn.addEventListener('click', createInputGroup);
@@ -67,6 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const textarea = e.target.closest('.input-wrapper').querySelector('textarea');
             textarea.value = '';
             textarea.focus();
+            updateCharCount(textarea);
         }
     });
 
@@ -93,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     clearBtn.addEventListener('click', () => {
         document.querySelectorAll('textarea').forEach(textarea => {
             textarea.value = '';
+            updateCharCount(textarea);
         });
         result.textContent = '';
         result.className = 'result';
