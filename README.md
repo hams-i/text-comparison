@@ -63,6 +63,10 @@ This tool allows you to perform such comparisons quickly and effectively.
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Create a Pull Request
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 ## Developer
 
 [Github - Hamsi](https://github.com/hams-i)
