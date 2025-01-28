@@ -2,6 +2,9 @@
 
 A modern and user-friendly interface, multiple text comparison tool. With this application, you can compare multiple texts simultaneously, easily edit their contents and see results instantly.
 
+## Screenshot
+![App Screenshot](app_screenshot.png)
+
 ## Motivation
 
 During software development, especially in security and validation processes, the need to compare different texts frequently arises. For example:
@@ -17,6 +20,7 @@ This tool allows you to perform such comparisons quickly and effectively.
 - Dynamic input field addition/removal
 - Instant comparison results
 - Easy text clearing
+- Real-time character count for each text field
 
 ## Technologies Used
 
@@ -54,6 +58,7 @@ This tool allows you to perform such comparisons quickly and effectively.
 4. Clear text using eraser icon
 5. Compare all texts with "Compare" button
 6. Clear all fields with "Clear All" button
+7. Character count is displayed in the title of each text field and updates in real-time
 
 ## Contributing
 

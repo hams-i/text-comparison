@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </button>
                     </div>
                 </div>
-                <textarea id="text${inputCount}" rows="10" placeholder="Enter text here..."></textarea>
+                <textarea id="text${inputCount}" rows="10" placeholder="Enter text here..." spellcheck="false"></textarea>
             </div>
         `;
         
