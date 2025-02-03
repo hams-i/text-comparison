@@ -60,6 +60,11 @@ body {
         font-size: 1.8rem;
         margin-bottom: 2rem;
     }
+    
+
+    @media (max-width: $breakpoint-sm) {
+        padding: 5px;
+    }
 }
 
 // Input Container
@@ -70,7 +75,7 @@ body {
     max-height: calc(100dvh - 200px);
     overflow-y: auto;
     margin: auto 0;
-    padding: 0 .5rem;
+    padding-right: 5px;
     width: 100%;
     max-width: 1400px;
     justify-content: center;
@@ -95,6 +100,10 @@ body {
             }
         }
     }
+
+    @media (max-width: $breakpoint-sm) {
+        gap: 10px;
+    }
 }
 
 // Input Group
@@ -118,16 +127,70 @@ body {
     margin-bottom: 0.5rem;
 
     label {
-        font-size: 0.9rem;
-        font-weight: 500;
-
-        .char-count {
-            color: var(--primary);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        padding: 2px;
+        border-radius: 6px;
+        
+        .editable-label-wrapper {
+            position: relative;
+            display: inline-block;
+            max-width: 250px;
+        }
+        
+        .editable-label {
+            cursor: text;
+            background: none;
+            border: none;
+            color: var(--foreground);
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 2px 4px;
+            max-width: 250px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            
+            &.using-default {
+                color: var(--foreground);
+            }
+            
+            &:hover {
+                background-color: var(--input);
+            }
+            
+            &:focus {
+                outline: none;
+                background-color: var(--input);
+                box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2);
+            }
+            
+            &::placeholder {
+                color: var(--foreground);
+                opacity: 0.5;
+            }
+        }
+        
+        .char-count, .word-count {
             font-size: 0.8rem;
-            margin-left: 0.5rem;
             opacity: 0.8;
+            white-space: nowrap;
+            color: var(--primary);
+            
+            @media (max-width: $breakpoint-sm) {
+                font-size: 0.75rem;
+            }
         }
     }
+}
+
+.default-title {
+    display: none;
 }
 
 // Input Actions
@@ -192,6 +255,10 @@ textarea {
         align-items: stretch;
         max-width: 500px;
     }
+
+    @media (max-width: $breakpoint-sm) {
+        max-width: 100%;
+    }
 }
 
 button {
@@ -237,6 +304,10 @@ button {
     max-width: 500px;
     white-space: nowrap;
     justify-content: center;
+
+    @media (max-width: $breakpoint-sm) {
+        max-width: 100%;
+    }
 }
 
 // Result
@@ -277,7 +348,7 @@ footer {
     background-color: var(--background);
 
     @media (max-width: $breakpoint-sm) {
-        padding: 1rem 0.75rem;
+        padding: 10px 5px;
         flex-direction: column;
         gap: 0.75rem;
         text-align: center;
